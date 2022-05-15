@@ -9,7 +9,6 @@ public partial class _Default : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Summary.Visible = false;
         if (Page.IsPostBack)
         {
             if (PersonalInfoYes.Checked)
@@ -24,6 +23,8 @@ public partial class _Default : Page
         }
         else
         {
+            Summary.Visible = false;
+
             InterestsList.Items.Add(new ListItem("Biking"));
             InterestsList.Items.Add(new ListItem("Scuba Diving"));
             InterestsList.Items.Add(new ListItem("Gamming"));
@@ -37,6 +38,7 @@ public partial class _Default : Page
             AgeList.Items.Add(new ListItem("Over 50"));
             PersonalInfoNo.Checked = true;
             PersonalDetails.Visible = false;
+            loadElement(sender, e);
         }
     }
     public void loadElement(object sender, EventArgs e)
@@ -44,10 +46,10 @@ public partial class _Default : Page
         if (ProductCategoryList.SelectedValue.Equals("Bikes"))
         {
             SubCategoryList.Items.Clear();
-            SubCategoryList.Items.Add(new ListItem("Brakes", "Brakes"));
-            SubCategoryList.Items.Add(new ListItem("Handlebars", "Handlebars"));
-            SubCategoryList.Items.Add(new ListItem("Chains", "Chains"));
-            SubCategoryList.Items.Add(new ListItem("Cranks", "Cranks"));
+            SubCategoryList.Items.Add(new ListItem("Brakes"));
+            SubCategoryList.Items.Add(new ListItem("Handlebars"));
+            SubCategoryList.Items.Add(new ListItem("Chains"));
+            SubCategoryList.Items.Add(new ListItem("Cranks"));
             SubCategoryList.SelectedIndex = 0;
         }
 
@@ -64,19 +66,19 @@ public partial class _Default : Page
         if (ProductCategoryList.SelectedValue.Equals("Scooters"))
         {
             SubCategoryList.Items.Clear();
-            SubCategoryList.Items.Add(new ListItem("Wheel", "Wheel"));
-            SubCategoryList.Items.Add(new ListItem("Footboard", "Footboard"));
-            SubCategoryList.Items.Add(new ListItem("Seat", "Seat"));
-            SubCategoryList.Items.Add(new ListItem("Grip", "Grip"));
+            SubCategoryList.Items.Add(new ListItem("Wheel"));
+            SubCategoryList.Items.Add(new ListItem("Footboard"));
+            SubCategoryList.Items.Add(new ListItem("Seat"));
+            SubCategoryList.Items.Add(new ListItem("Grip"));
             SubCategoryList.SelectedIndex = 0;
         }
 
         if (ProductCategoryList.SelectedValue.Equals("Hoverboards"))
         {
             SubCategoryList.Items.Clear();
-            SubCategoryList.Items.Add(new ListItem("Battery", "Battery"));
-            SubCategoryList.Items.Add(new ListItem("Foot Pedal", "Foot Pedal"));
-            SubCategoryList.Items.Add(new ListItem("Wheel", "Wheel"));
+            SubCategoryList.Items.Add(new ListItem("Battery"));
+            SubCategoryList.Items.Add(new ListItem("Foot Pedal"));
+            SubCategoryList.Items.Add(new ListItem("Wheel"));
             SubCategoryList.SelectedIndex = 0;
         }
 

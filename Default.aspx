@@ -2,10 +2,6 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2>Activity Club Form Registration</h2>
-    <p class="text-danger">
-        <asp:Literal runat="server" ID="ErrorMessage" />
-    </p>
-
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
@@ -13,7 +9,7 @@
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Name" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
-                    CssClass="text-danger" ErrorMessage="The name field is required." />
+                    CssClass="text-danger" ErrorMessage="The name field is required." style="color: #FF0000"/>
             </div>
         </div>
         <div class="form-group">
@@ -61,6 +57,10 @@
         <div class="form-group">
             <asp:Label runat="server" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">
+                <!--
+                    <asp:CompareValidator runat="server" ControlToCompare="ConfirmPassword" ControlToValidate="Password"
+                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                 -->   
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
             </div>
         </div>
@@ -103,7 +103,6 @@
             <asp:Label runat="server" CssClass="col-md-2 control-label">Product Category</asp:Label>
             <div class="col-md-2">
                   <asp:DropDownList ID="ProductCategoryList" OnTextChanged="loadElement" AutoPostBack="true" runat="server" >
-                      
                     <asp:ListItem>Bikes</asp:ListItem>  
                     <asp:ListItem>Skateboards</asp:ListItem>  
                     <asp:ListItem>Scooters</asp:ListItem>  
@@ -121,7 +120,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                 <asp:Button runat="server" Text="Submit" CssClass="btn btn-default" />
+                 <asp:Button runat="server" Text="Submit" OnClick="showResult" CssClass="btn btn-default" />
             </div>
         </div>
         <asp:Panel ID="Summary" runat="server" >
